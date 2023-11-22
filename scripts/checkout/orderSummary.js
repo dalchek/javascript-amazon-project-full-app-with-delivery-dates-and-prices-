@@ -6,6 +6,7 @@ import {
 } from '../../data/deliveryOptions.js';
 import {getProduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
+import {renderHeader} from './checkoutHeader.js';
 import {renderPaymentSummary} from './paymentSummary.js';
 
 export function renderOrderSummary() {
@@ -128,6 +129,9 @@ export function renderOrderSummary() {
                 `.js-cart-item-container-${productId}`
             );
             container.remove();
+
+            renderHeader();
+            renderPaymentSummary();
             renderPaymentSummary();
         });
     });
